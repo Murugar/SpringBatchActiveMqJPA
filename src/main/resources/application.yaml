@@ -9,7 +9,7 @@ ticket:
   chunk.size: 1
   poller:
     cron: '*/10 * * * * *'
-    path: 'c:\\temp'
+    path: 'temp'
     fileMask: '*.csv'
   job:
     parameter: 'input.file.name'
