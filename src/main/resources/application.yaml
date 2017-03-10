@@ -1,0 +1,61 @@
+info:
+  build:
+    artifact: "@project.artifactId@"
+    name: "@project.name@"
+    description: "@project.description@"
+    version: "@project.version@"
+ticket:
+  file: classpath:/tickets.csv
+  chunk.size: 1
+  poller:
+    cron: '*/10 * * * * *'
+    path: 'c:\\temp'
+    fileMask: '*.csv'
+  job:
+    parameter: 'input.file.name'
+  metrics:
+    count: EXTERNAL
+  queue: 'jms/ticket'
+server:
+  port: 8080
+  applicationContextPath: /api
+  adminContextPath: /admin
+management:
+  port: 8080
+  address: 127.0.0.1
+  context-path: /manage
+  security:
+    enabled: true
+    user:
+      name: admin
+      password: secret
+    role: SUPERUSER
+spring:
+  batch:
+    job:
+      enabled: false
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate.ddl-auto: update
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/ticketsdb
+    username: root
+    password: good1234
+    driverClassName: com.mysql.jdbc.Driver
+  activemq:
+    in-memory: true
+    broker-url: tcp://localhost:61616
+swagger:
+  api:
+    info:
+      title: "Spring Boot Spring Batch ActiveMQ API"
+      description: "Batch Tickets Import"
+      termsOfServiceUrl: ""
+      contact: " "
+      license: ""
+      licenseUrl: ""
+      version: "1.0"
+      
