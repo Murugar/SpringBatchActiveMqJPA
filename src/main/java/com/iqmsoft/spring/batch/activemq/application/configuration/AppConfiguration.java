@@ -8,10 +8,8 @@ import org.springframework.context.annotation.Import;
         JmsConfiguration.class,
         BatchConfiguration.class,
         IntegrationConfiguration.class,
-        WebConfiguration.class,
         SecurityConfiguration.class,
-        MonitoringConfig.class,
-        SwaggerConfiguration.class
+        MonitoringConfig.class
 })
 public class AppConfiguration {
 }
